@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+      .boundary-line .vertical-arrow {
+        width: 450px;
+        bottom: 191px;
+        right: -177px;
+      }
+      .boundary-line .right-horizontal-arrow {
+        bottom: 390px;
+        width: 195px;
+      }
+      .rong-container .rong-login-box input.get-audience-btn {
+        width: 260px;
+      }
+      .rong-container .rong-login-box input#liveurl {
+        width: 300px;
+      }
+      .rong-container #rong-video-box {
+        text-align: center;
+      }
+      .video-wrap {
+        width: auto;
+      }
+    </style>
+    <title>Web RTC Living V5 Quick Demo</title>
+    <script src="./config.js"></script>
+  </head>
+  <body>
+    <div class="rong-container">
+      <h3 class="rong-title"> Web RTC Living V5 Quick Demo </h3>
+      <div class="rong-login-box">
+        <div class="im-wrap">
+          <div class="input-wrap">
+            <input class="rong-input" id="appkey" type="text" value="" placeholder="请输入 appkey" autocomplete="off" oninput="inputChangeFn(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" type="button" value="初始化 IM" onclick="initIM(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" type="button" value="设置 IM 监听" onclick="setIMListener(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" id="token" type="text" value="" placeholder="请输入 token" autocomplete="off" oninput="inputChangeFn(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" type="button" value="连接 IM" onclick="connectIM(this)">
+          </div>
+        </div>
+        <div class="boundary-line">
+          <span class="arrow horizontal-arrow left-horizontal-arrow">------------------------</span>
+          <span class="arrow vertical-arrow">-----------------------------------------</span>
+          <span class="arrow horizontal-arrow right-horizontal-arrow">------------------></span>
+          <div class="tips">IM 连接成功后才可初始化 RTC</div>
+        </div>
+        <div class="rtc-wrap">
+          <div class="input-wrap">
+            <input class="rong-input get-audience-btn" type="button" value="初始化 RTC，获取观众客户端实例" onclick="initRTCClient(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" id="setRoomListener" type="button" value="注册监听事件" onclick="initAudienceListener(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" id="liveurl" type="text" value="" placeholder="请输入主播端的 liveUrl" autocomplete="off" oninput="inputChangeFn(this)">
+            <span class="arrow vertical-arrow">--------></span>
+          </div>
+          <div class="input-wrap">
+            <input class="rong-input" type="button" value="观看直播" onclick="subscribeLive()">
+          </div>
+        </div>
+        <div id="rong-video-box"></div>
+      </div>
+    </div>
+    <!-- RongIMLib -->
+    <script src="https://cdn.ronghub.com/RongIMLib-4.4.1.prod.js"></script>
+    <!-- RTCLib v5 -->
+    <script src="https://cdn.ronghub.com/RCRTC-5.1.1.prod.js"></script>
+    <script src="./assets/js/im.js"></script>
+    <script src="./assets/js/audience.js"></script>
+    <script>
+      const inputChangeFn = (e) => {
+        if (e.value) {
+          e.nextElementSibling.style.color = '#09f';
+        } else {
+          e.nextElementSibling.style.color = '#fff';
+        }
+      }
+    </script>
+  </body>
+</html>
