@@ -8,11 +8,11 @@ let audienceClient;
  * 初始化 rtcClient
  */
  const initRTCClient = (e) => {
-  if (!imClient || !isConnected) {
+  if (!isInitIM || !isConnected) {
     alert('请确保已经初始化完 IM 、并已连接成功');
     return;
   }
-  rtcClient = imClient.install(window.RCRTC.installer, {
+  rtcClient = RongIMLib.installPlugin(window.RCRTC.installer, {
     mediaServer: Config.mediaServer || undefined,
     timeout: 30 * 1000,
     logLevel: 0,
