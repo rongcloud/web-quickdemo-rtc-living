@@ -15,7 +15,6 @@ let audienceClient;
   rtcClient = imClient.install(window.RCRTC.installer, {
     mediaServer: Config.mediaServer || undefined,
     timeout: 30 * 1000,
-    logLevel: 0,
   });
   // 获取直播观众端实例
   audienceClient = rtcClient.getAudienceClient();

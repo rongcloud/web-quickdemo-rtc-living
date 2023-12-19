@@ -18,7 +18,6 @@ const initRTCClient = (e) => {
 	rtcClient = imClient.install(window.RCRTC.installer, {
 		mediaServer: Config.mediaServer || undefined,
 		timeout: 30 * 1000,
-		logLevel: window.RCEngine.LogLevel.DEBUG
 	});
 
   e.nextElementSibling.style.color = '#09f';
